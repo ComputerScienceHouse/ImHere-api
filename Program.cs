@@ -1,20 +1,19 @@
 namespace ImHere_api;
 
-using Microsoft.EntityFrameworkCore;
-
-using ImHere_api.InMemory;
 
 public class Program {
     public static void Main(string[] args) {
-        var builder = WebApplication.CreateBuilder(args);
+        var builder = WebApplication.CreateBuilder(args); {
+            builder.Services.AddControllers();
+        }
 
-        builder.Services.AddDbContext<AttendanceContext>(options => options.UseInMemoryDatabase("Attendance"));
+        var app = builder.Build(); {
+            app.UseHttpsRedirection();
+            app.MapControllers();
+            app.MapGet("/", () => "Hello World!");
 
-        var app = builder.Build();
-
-        app.MapGet("/", () => "Hello World!");
-
-        app.Run();
+            app.Run();
+        }
 
         /// Here are the routes that will be used
         /// POST /api/attendence create attendence using the json body containing the array of users, and the event info

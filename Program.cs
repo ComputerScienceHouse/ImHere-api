@@ -1,7 +1,15 @@
 namespace ImHere_api;
+
+using Microsoft.EntityFrameworkCore;
+
+using ImHere_api.InMemory;
+
 public class Program {
     public static void Main(string[] args) {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddDbContext<AttendanceContext>(options => options.UseInMemoryDatabase("Attendance"));
+
         var app = builder.Build();
 
         app.MapGet("/", () => "Hello World!");

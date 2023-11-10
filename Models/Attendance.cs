@@ -13,11 +13,11 @@
         TechnicalSeminar
     }
 
-    public class Attendance {
+    public class Attendance : SerializableModel<Attendance> {
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
-        public Member[] Attendees { get; set; }
+        public List<Member> Attendees { get; set; }
 
     }
 }

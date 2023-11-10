@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImHereAPI", "ImHereAPI.csproj", "{88A6CC62-749B-4673-AF50-3C3F14E8E2EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88A6CC62-749B-4673-AF50-3C3F14E8E2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A6CC62-749B-4673-AF50-3C3F14E8E2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A6CC62-749B-4673-AF50-3C3F14E8E2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A6CC62-749B-4673-AF50-3C3F14E8E2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4798D7C-8B56-4E94-A535-F5436745A6FE}
+	EndGlobalSection
+EndGlobal

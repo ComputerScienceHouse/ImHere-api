@@ -12,7 +12,8 @@ public class Program {
                 options.AddDefaultPolicy(builder => {
                     builder.WithOrigins("http://localhost:3000")
                     .AllowAnyMethod()
-                    .AllowAnyHeader();
+                    .AllowAnyHeader()
+                    .AllowCredentials();
                 });
             });
         }
@@ -21,7 +22,7 @@ public class Program {
         {
             app.UseHttpsRedirection();
             app.MapControllers();
-            app.MapGet("/", () => "Hello World!");
+            app.MapGet("/", () => "Nobody is home...");
             app.MapHub<AttendanceHub>("/rtc/hub");
 
             app.UseCors();

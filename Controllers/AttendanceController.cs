@@ -20,19 +20,21 @@ namespace ImHereAPI.Controllers {
         [HttpPut("{id}")]
         public async Task<IActionResult> SignIn(uint id, Member member) {
             if (!Attendances.ContainsKey(id))
-                return NotFound("Attendance does not exist.");
+                return NotFound("Attendance does not exist");
+            Attendance response;
             lock (AttendancesLock) {
                 if (Attendances[id].Members.ContainsKey(member.preferred_username))
                     return BadRequest("Already signed in");
                 if (Attendances[id].Blacklist.Contains(member.preferred_username))
-                    return StatusCode(418, "You are blacklisted for not being present.");
+                    return StatusCode(418, "You are blacklisted for not being present");
                 Attendances[id].Members.Add(member.preferred_username, member);
+                response = new(Attendances[id].Name);
             }
             // dispatch message to host
             await AttendanceHub.DispatchMemberSignIn(Hub, id, member);
             // wait for ack
             // todo
-            return Ok();
+            return Ok(response);
         }
 
         [HttpPost]
